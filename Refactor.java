@@ -83,7 +83,7 @@ class Printer{
             System.out.print(list.get(index)+" ");
             index= index + totalRows;
             countColumns ++;
-            if(countColumns==4){
+            if(countColumns==MAX_COLUM){
                 countRows++;
                 index = countRows;
                 System.out.println(" ");
