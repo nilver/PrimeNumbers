@@ -8,6 +8,7 @@ interface IStrategy {
 
     public boolean anyMathProperty(Integer number);
 }
+
 public class Test{
 
     public static void main(String[] args){
@@ -18,14 +19,14 @@ public class Test{
         scan.close();
 
         //@TODO You should read the max value from another source.
-
         Filter filter = new Filter(max);
         filter.processList();
 
     }
-
 }
+
 class Filter {
+
     private int max;
 
     public Filter(int max){
@@ -109,5 +110,4 @@ class Printer{
         }
         System.out.println();
     }
-
 }
