@@ -8,10 +8,31 @@ interface IStrategy {
 
     public boolean anyMathProperty(Integer number);
 }
+public class Test{
 
-public class Refactor {
+    public static void main(String[] args){
 
-    public static void main(String[] args) {
+        Scanner scan= new Scanner(System.in);
+        System. out.println("Introduzca un número : ");
+        int max = scan.nextInt();
+        scan.close();
+
+        //@TODO You should read the max value from another source.
+
+        Filter filter = new Filter(max);
+        filter.processList();
+
+    }
+
+}
+class Filter {
+    private int max;
+
+    public Filter(int max){
+        this.max = max;
+    }
+
+    public void processList() {
 
         IStrategy strategyisPrime = (number -> {
             if(number <= 2)
@@ -29,11 +50,6 @@ public class Refactor {
             return (number%2) ==0;
         });
 
-        Scanner scan= new Scanner(System.in);
-        System. out.println("Introduzca un número : ");
-        int max = scan.nextInt();
-        scan.close();
-
         List<Integer> listPrimes = IntStream.range(1, Integer.MAX_VALUE)
                 .filter(n ->  strategyisPrime.anyMathProperty(n))
                 .limit(max)
@@ -50,6 +66,7 @@ public class Refactor {
         new Printer().print(listPrimes, 200);
         System.out.println("Even number");
         new Printer().print(listEvens, 200);
+
     }
 }
 
@@ -89,7 +106,6 @@ class Printer{
                 System.out.println(" ");
                 countColumns=0;
             }
-
         }
         System.out.println();
     }
